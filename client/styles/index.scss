@@ -8,6 +8,12 @@ body {
 }
 
 
+.movie_container{
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+}
+
 .movie_tile img {
   height: 250px;
   width: auto;
@@ -15,8 +21,3 @@ body {
 
 }
 
-.movie_tile{
-  display: flex;
-  justify-content: center;
-  width: 800px;
-}
