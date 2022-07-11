@@ -8,3 +8,15 @@ body {
 }
 
 
+.movie_tile img {
+  height: 250px;
+  width: auto;
+  border-radius: 45%;
+
+}
+
+.movie_tile{
+  display: flex;
+  justify-content: center;
+  width: 800px;
+}
