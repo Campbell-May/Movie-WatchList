@@ -31,5 +31,19 @@ const id = idArr[0]
   .catch((err) => res.status(500).json({ msg: err.message}))
 })
 
+router.patch('/:id', (req, res) => {
+const id = req.params.id
+const detailsToUpdate = req.body
+
+movieDb.updateMovie(id, detailsToUpdate)
+  .then(() => {
+   return movieDb.getMovieById(id)
+  })
+  .then((movie) => {
+    res.json(movie)
+  })
+  .catch((err)=>console.log(err.message))
+})
+
 
 module.exports = router

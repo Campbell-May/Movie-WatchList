@@ -7,7 +7,7 @@
 // }]
 
 
-import { SAVE_ALL_MOVIES, SAVE_ONE_MOVIE } from '../actions/movies.js'
+import { SAVE_ALL_MOVIES, SAVE_ONE_MOVIE, WATCHED_MOVIE } from '../actions/movies.js'
 
 
 function reducer(state = [], action) {
@@ -16,6 +16,16 @@ function reducer(state = [], action) {
       return action.payload
       case SAVE_ONE_MOVIE:
         return [ ...state, action.payload]
+      
+        case WATCHED_MOVIE:
+          return state.map(movie => {
+            const updatedMovie = action.payload
+            if(movie.id === updatedMovie.id) {
+              return updatedMovie
+            }
+            return movie
+          })
+    
   
 
 

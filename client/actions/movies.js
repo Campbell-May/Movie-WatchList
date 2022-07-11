@@ -1,7 +1,8 @@
-import { fetchAllMovies, postTheMovie } from '../apis/movies'
+import { fetchAllMovies, postTheMovie, updateMovieDetails } from '../apis/movies'
 
 export const SAVE_ALL_MOVIES = 'SAVE_ALL_MOVIES'
 export const SAVE_ONE_MOVIE = 'SAVE_ONE_MOVIE'
+export const WATCHED_MOVIE = 'WATCHED_MOVIE'
 
 function saveMovies(arr) {
   return {
@@ -16,6 +17,14 @@ export function saveOneMovie(newMovie) {
     payload: newMovie,
   }
 }
+
+export function watchedMovie(watched) {
+  return {
+    type: WATCHED_MOVIE,
+    payload: watched,
+  }
+}
+
 
 export function getAllTheMovies() {
   return (dispatch) => {
@@ -37,4 +46,18 @@ export function addMovie(movie) {
       })
       .catch((err) => console.log(err.message))
   }
+}
+
+export function setAsWatched (id) {
+return (dispatch) => {
+  //api
+  updateMovieDetails(id, {watched: true})
+  //then
+  .then((movie) => {
+dispatch(watchedMovie(movie))
+  })
+  .catch((err)=>console.log(err.message))
+  //dispatch
+}
+
 }

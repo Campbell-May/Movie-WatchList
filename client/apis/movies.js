@@ -18,3 +18,12 @@ return request.post('/api/v1/movies')
 .then(resp => resp.body)
 }
 
+
+export function updateMovieDetails (id, details) {
+//PATCH
+return request.patch('/api/v1/movies/' + id)
+//send Details
+.send(details)
+.then(resp => resp.body)
+
+}

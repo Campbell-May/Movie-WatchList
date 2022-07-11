@@ -22,8 +22,15 @@ function getMovieById (id, db = conn) {
 
 }
 
+function updateMovie (id, details, db = conn) {
+  return db('movies')
+  .where('id', id)
+  .update(details) // { watched: true }
+}
+
 module.exports = {
   getAllMovies,
   insertTheMovie,
-  getMovieById
+  getMovieById,
+  updateMovie
 }
