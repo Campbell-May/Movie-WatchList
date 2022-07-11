@@ -4,3 +4,17 @@ export function fetchAllMovies () {
 return request.get('/api/v1/movies')
   .then(resp => resp.body)
 }
+
+export function postTheMovie (messyMovie) {
+  const tidyMovie = {
+    title: messyMovie.title,
+    imdb_id: messyMovie.id,
+    img: messyMovie.image
+  }
+
+return request.post('/api/v1/movies')
+.send(tidyMovie)
+//this is what returns from the db
+.then(resp => resp.body)
+}
+

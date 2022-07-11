@@ -7,13 +7,16 @@
 // }]
 
 
-import { SAVE_ALL_MOVIES } from '../actions/movies.js'
+import { SAVE_ALL_MOVIES, SAVE_ONE_MOVIE } from '../actions/movies.js'
+
 
 function reducer(state = [], action) {
   switch (action.type) {
     case SAVE_ALL_MOVIES:
       return action.payload
-
+      case SAVE_ONE_MOVIE:
+        return [ ...state, action.payload]
+  
 
 
     default:

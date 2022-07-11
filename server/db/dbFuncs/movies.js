@@ -7,6 +7,23 @@ function getAllMovies (db = conn) {
 
 }
 
+
+function insertTheMovie (newMovie, db = conn) {
+return db('movies')
+  .insert(newMovie)
+
+}
+
+function getMovieById (id, db = conn) {
+  return db('movies')
+  .select()
+    .where('id', id)
+    .first()
+
+}
+
 module.exports = {
-  getAllMovies
+  getAllMovies,
+  insertTheMovie,
+  getMovieById
 }

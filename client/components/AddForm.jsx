@@ -1,9 +1,16 @@
 import React, { useState } from 'react'
 import { searchForMovie } from '../apis/imdb'
+import { useDispatch } from 'react-redux'
+import { addMovie } from '../actions/movies'
+
 
 function AddForm() {
   const [newMovie, setNewMovie] = useState('')
   const [results, setResults] = useState([])
+
+
+  const dispatch = useDispatch()
+
 
   const handleTyping = (evt) => {
     setNewMovie(evt.target.value)
@@ -17,6 +24,11 @@ function AddForm() {
       })
       .catch((err) => console.log(err.message))
   }
+
+  const handleAdd = (movie) => {
+dispatch(addMovie(movie))
+  }
+
 
   return (
     <>
@@ -36,8 +48,9 @@ function AddForm() {
       </form>
       <ul>
         {results.map((movie) => (
-          <li key={movie.title}>
-            {movie.title} {movie.description}{' '}
+          <li key={movie.id}>
+            {movie.title} {movie.description}
+            <button onClick={() => handleAdd(movie)}>Add</button>
           </li>
         ))}
       </ul>
