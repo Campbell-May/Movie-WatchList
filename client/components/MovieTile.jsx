@@ -1,13 +1,16 @@
 import React from "react";
 import {useDispatch} from 'react-redux'
-import { setAsWatched} from '../actions/movies.js'
+import { setAsWatched, deleteMovie} from '../actions/movies.js'
 
 function MovieTile (props) {
 const movie = props.movie
 const dispatch = useDispatch()
 
-function deleteMovie ()  {
+
+
+function deleteMovieButton ()  {
   console.log('deeeelete', movie.id)
+  dispatch(deleteMovie(movie.id))
 
 
 
@@ -27,7 +30,7 @@ const watchedMovie = () => {
     <div className='movie_tile' >
     <img src={movie.img} alt='movieimage'></img>
       <h3 >{movie.title}</h3>
-      <button onClick={() => deleteMovie(movie.id)}>Delete</button>
+      <button onClick={() => deleteMovieButton(movie.id)}>Delete</button>
      {!movie.watched && <button onClick={() => watchedMovie(movie.id)}>Watched</button>}
 
 

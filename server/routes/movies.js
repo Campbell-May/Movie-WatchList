@@ -45,5 +45,19 @@ movieDb.updateMovie(id, detailsToUpdate)
   .catch((err)=>console.log(err.message))
 })
 
+router.delete('/:id', (req, res) => {
+  const id = req.params.id
+ 
+  
+  movieDb.deleteMovie(id)
+    .then(() => {
+     return movieDb.getMovieById(id)
+    })
+    .then((movie) => {
+      res.json(movie)
+    })
+    .catch((err)=>console.log(err.message))
+  })
+
 
 module.exports = router

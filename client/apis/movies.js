@@ -27,3 +27,11 @@ return request.patch('/api/v1/movies/' + id)
 .then(resp => resp.body)
 
 }
+
+export function deleteMovies (id) {
+  //PATCH
+  return request.delete('/api/v1/movies/' + id)
+  //send Details
+  .then((resp) => resp)
+  
+  }

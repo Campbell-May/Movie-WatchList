@@ -1,8 +1,10 @@
-import { fetchAllMovies, postTheMovie, updateMovieDetails } from '../apis/movies'
+import { deleteMovies, fetchAllMovies, postTheMovie, updateMovieDetails } from '../apis/movies'
 
 export const SAVE_ALL_MOVIES = 'SAVE_ALL_MOVIES'
 export const SAVE_ONE_MOVIE = 'SAVE_ONE_MOVIE'
 export const WATCHED_MOVIE = 'WATCHED_MOVIE'
+export const DELETE_MOVIE = 'DELETE_MOVIE'
+
 
 function saveMovies(arr) {
   return {
@@ -24,6 +26,14 @@ export function watchedMovie(watched) {
     payload: watched,
   }
 }
+
+export function deletedMovie(deletedID) {
+  return {
+    type: DELETE_MOVIE,
+    payload: deletedID,
+  }
+}
+
 
 
 export function getAllTheMovies() {
@@ -61,3 +71,17 @@ dispatch(watchedMovie(movie))
 }
 
 }
+
+export function deleteMovie (id) {
+  return (dispatch) => {
+    //api
+    deleteMovies(id)
+    //then
+    .then(() => {
+  dispatch(deletedMovie(id))
+    })
+    .catch((err)=>console.log(err.message))
+    //dispatch
+  }
+  
+  }

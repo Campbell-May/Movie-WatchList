@@ -28,9 +28,16 @@ function updateMovie (id, details, db = conn) {
   .update(details) // { watched: true }
 }
 
+function deleteMovie (id, db = conn) {
+  return db('movies')
+  .where('id', id)
+  .delete()
+}
+
 module.exports = {
   getAllMovies,
   insertTheMovie,
   getMovieById,
-  updateMovie
+  updateMovie,
+  deleteMovie
 }
