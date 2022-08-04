@@ -10,7 +10,10 @@ const movies = useSelector((reduxState) => {
 console.log(movies)
   return (
     <>
-      <h2>Movie List</h2>
+    <div className='watchList'>
+      <h2>My WatchList</h2>
+    </div>
+      
       <div className='movie_container'> 
          {movies.map(movie => <MovieTile movie={movie} key={movie.id}/>)}
       </div>
