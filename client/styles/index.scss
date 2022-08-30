@@ -15,13 +15,17 @@ body {
   color: #EDF5E1;
   font-size: 10vh;
   font-family: 'Syncopate', sans-serif;
+  text-shadow:2px 2px #05386B;
 }
 
 .watchList h2{
+  background-color: #05386B;
   text-align: center;
   color: #EDF5E1;
   font-size: 7vh;
   font-family: 'Syncopate', sans-serif;
+  padding: 20px;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .navBar {
@@ -37,6 +41,9 @@ text-decoration: none;
   display: flex;
   justify-content: center;
   text-decoration: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
   }
   li{
    
@@ -73,7 +80,7 @@ flex-wrap: wrap;
 .movie_tile {
   padding: 20px;
   text-align: center;
-  width: fit-content;
+  width: 25%;
   word-wrap: break-word;
 
 h3{
@@ -82,7 +89,7 @@ h3{
   font-size: 2vh;
   font-family: 'Syncopate', sans-serif;
   word-wrap: break-word;
-  
+  text-shadow:2px 2px #05386B;
 }
 
   img {
@@ -105,6 +112,8 @@ h3{
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #379683;
+    margin-bottom: 5px;
+
   }
   button:hover {
     background-color: #EDF5E1;
@@ -112,3 +121,60 @@ h3{
   }
 }
 
+.searchBar{
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+ justify-content: center;
+ column-gap: 2vh;
+
+
+  input {
+    align-self: center;
+    width: 130px;
+    box-sizing: border-box;
+    border: 5px solid #05386B;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    // background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  input[type=text]:focus {
+    width: 100%;
+    border: 3px solid #555;
+   
+  }
+
+  
+    button{
+     
+     align-self: left;
+      padding: 15px 25px;
+      font-size: 24px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      color: #EDF5E1;
+      background-color: #05386B;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 9px #379683;
+      width: 20vh;
+      
+    }
+    button:hover {
+      background-color: #EDF5E1;
+      color: #05386B
+    }
+  
+
+}

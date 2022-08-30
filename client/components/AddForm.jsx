@@ -33,10 +33,11 @@ dispatch(addMovie(movie))
   return (
     <>
       <form onSubmit={handleSubmit}>
-        {process.env.MOVIE_KEY}
+       
+       <div className='searchBar'>
 
         <label>
-          Search:
+         
           <input
             onChange={handleTyping}
             name="search"
@@ -44,7 +45,8 @@ dispatch(addMovie(movie))
             type="text"
           />
         </label>
-        <button>Done!</button>
+        <button> Search!</button>
+        </div>
       </form>
       <ul>
         {results.map((movie) => (

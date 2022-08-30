@@ -7,8 +7,8 @@ function Nav() {
     
    <div className='navBar'>
     <ul>
-      <li> <Link to='/'><button>Home</button></Link></li>
-   <li><Link to='/add'><button>AddForm</button></Link></li> 
+      <li> <Link to='/'><button>HOME</button></Link></li>
+   <li><Link to='/add'><button>ADD MORE</button></Link></li> 
     </ul>
    
    </div>

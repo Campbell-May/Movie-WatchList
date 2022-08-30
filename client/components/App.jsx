@@ -19,7 +19,7 @@ dispatch(getAllTheMovies())
   return (
     <>
       <header className="header">
-        <h1>Movies</h1>
+        <h1>THE BLAIR WATCH PROJECT</h1>
       </header>
       <section className="main">
         
